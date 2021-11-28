@@ -1,0 +1,103 @@
+.portfolio{
+    display: flex;
+    justify-content: space-between;
+}
+.portfolio .left_port{
+    width: 35%;
+    height: 100%;
+    border-right: 1px solid #D7D7D7;
+    padding-right: 20px;
+}
+.portfolio .right_port{
+    width: 63%;
+    height: 600px;
+    padding: 10px 0;
+    overflow-y: scroll;
+}
+.portfolio .form-file {
+    position: relative;
+}
+
+.portfolio .form-file input {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    opacity: 0;
+}
+
+.portfolio .form-file label {
+    display: flex;
+    align-items: center;
+}
+
+.portfolio label .fa {
+    color: #484848;
+    font-size: 24px;
+}
+
+.portfolio label span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #DEDEDE
+}
+
+.portfolio .left_port .image {
+    width: 100%;
+    height: 240px;
+    border: 1px solid #E3E3E3;
+    margin-top: 25px;
+}
+
+.portfolio .space input {
+    border: none;
+    width: 100%;
+    outline: none;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+
+}
+
+.portfolio .space textarea {
+    border: none !important;
+    margin-top: 20px;
+    padding-bottom: 60px;
+    padding-left: 5px;
+    outline: none;
+    width: 100%;
+
+}
+
+.portfolio form button {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+    padding: 7px 28px;
+    border: none;
+    outline: none;
+    background: #4FD1C5;
+border-radius: 8px;
+margin-top: 15px;
+cursor: pointer;
+}
+.portfolio .left_port .image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio .left_port .image img{
+    width: 100%;
+    position: absolute;
+    top: -25%;
+}
+.portfolio .right_port .date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}

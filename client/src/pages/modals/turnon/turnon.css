@@ -1,0 +1,63 @@
+.turn-on-modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.turn-on-modal h1 {
+  color: white;
+  font-weight: 600;
+  font-size: 100px;
+  line-height: 120px;
+}
+
+.turn-on-modal h1 div {
+  display: inline-block;
+  animation: animHi 1s linear infinite both;
+}
+
+.turn-on-modal a {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+@media (max-width: 992px) {
+  .turn-on-modal h1 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .turn-on-modal h1 {
+    font-size: 48px;
+    line-height: 48px;
+    padding: 20px;
+  }
+}
+
+@keyframes animHi {
+  0% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}

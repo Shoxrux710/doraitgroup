@@ -1,0 +1,103 @@
+@font-face {
+  font-family: Monument;
+  src: url("../../fonts/Quicksand-VariableFont_wght.ttf");
+}
+
+body {
+  margin: 0;
+}
+
+.kirish-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.kirish-page .then {
+  width: 50%;
+  height: 100vh;
+  background-image: url("../../img/then.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.kirish-page .future {
+  width: 50%;
+  height: 100vh;
+  background-image: url("../../img/future.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.kirish-page .curtain {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.kirish-page .curtain h1 {
+  color: white;
+  font-size: 60px;
+  line-height: 80px;
+  letter-spacing: 2px;
+  font-family: Monument;
+}
+
+.kirish-page .then .curtain h1 {
+  font-family: "w95fa", sans-serif;
+}
+
+.kirish-page .curtain .link {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kirish-page .then .curtain .link img {
+  width: 150px;
+}
+
+.kirish-page .future .curtain .link img {
+  width: 80px;
+}
+
+@media (max-width: 1200px) {
+  .kirish-page .curtain h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+@media (max-width: 992px) {
+  .kirish-page .curtain h1 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .kirish-page {
+    flex-direction: column;
+  }
+  .kirish-page .then {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .kirish-page .future {
+    width: 100%;
+    height: 50vh;
+  }
+  .kirish-page .curtain {
+    width: 100%;
+    height: 50vh;
+  }
+}

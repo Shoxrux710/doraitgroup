@@ -1,0 +1,86 @@
+{
+    "home": {
+        "sign": "Kirish",
+        "blog": "Blog",
+        "portfolio": "Portfolio",
+        "news": "Yangiliklar",
+        "contact": "Aloqa",
+        "services": "Xizmatlar",
+        "about_us": "Biz haqimizda",
+        "recycle_bin": "Savatcha",
+        "calculator": "Kalkulyator",
+        "turn_on": "O'chirish",
+        "lan": "Uz",
+        "edit": "Tahrirlash"
+    },
+    "kirish": {
+        "then": "O'tmishga qaytish!",
+        "future": "Kelajakka marhamat!"
+    },
+    "about": {
+        "about_us": "Biz haqimizda",
+        "text": "Bizning jamoa 2021-yil aprel oyida 10 kishili jamoa o'z faoliyatini Dora IT Team nomi bilan boshladi",
+        "text2": "Dizaynerlar tomonidan yaratilgan shablonlarning katta tanlovi. O'zingiz xohlagan narsani o'zgartiring, tahrirlang va qo'shing. Professional ko'rinish domen bilan boshlanadi. Dizaynerlar tomonidan yaratilgan shablonlarning katta tanlovi. O'zingiz xohlagan narsani o'zgartiring, tahrirlang va qo'shing. Professional ko'rinish domen bilan boshlanadi.  O'zingiz xohlagan narsani o'zgartiring, tahrirlang va qo'shing. Professional ko'rinish domen bilan boshlanadi.",
+        "our_team": "Bizning jamoa",
+        "age": "Yosh",
+        "experience": "Tajriba",
+        "number_projects": "Loyihalar soni",
+        "rank": "Daraja",
+        "number_works": "Ishlar soni"
+    },
+    "blog": {
+        "write": "Blog yozish",
+        "blogs": "Bloglar",
+        "my_blog": "Mening blogim",
+        "delete": "Nashrni o'chirish",
+        "do": "Nashr qilish",
+        "back": "Orqaga qaytish",
+        "joylash": "Postni joylash",
+        "nashrlar": "Nashrlar",
+        "follower": "Obunachilar",
+        "follow_back": "Obuna bo'lganlar"
+    },
+    "contact": {
+        "name": "Ism",
+        "phone": "Telefon raqam",
+        "comment": "Izoh",
+        "send": "Jo'natish",
+        "address": "Manzil",
+        "address_": "Toshkent shahri,Yunusobod tumani, Yangi Shahar ko'chasi",
+        "email": "Email"
+    },
+    "services": {
+        "design": "Web Dizayn",
+        "design_text": "Zamonaviy raqamli dunyoda web sayt yaratishda iste'molchilarning sizning biznesingiz bilan birinchi o'zaro aloqasi hisoblanadi, shuning uchun birinchi foydalanuvchi taasurotining deyarli 95% veb sayt dizaynlari bilan bog'liq.",
+        "site": "Web Sayt",
+        "site_text": "Web-sayt – bu noyob manzil. Sayt yoki web-sayt inglizcha website: web – «o’rgimchak to’ri, tarmoq» va site – «joy, segment, tarmoqning bir qismi» degan ma’nolarni anglatadi. Sayt – bu bitta domen nomidan foydalanadigan, bir-biriga bog’langan web-sahifalar to’plami. Web-saytlar shaxs, guruh, korxona yoki tashkilot tomonidan turli maqsadlarda yaratilishi mumkin. Barcha ommaviy web-saytlar butun dunyodagi internet to’rini tashkil qiladi.",
+        "marketing": "Marketing",
+        "marketing_text": "Marketingning maqsadi - yangi mijozlarni mahsulot, tovar yoki xizmat uchun jalb qilish, ularga yuqori iste'mol sifatini taklif qilib, eski mijozlarni saqlab qolgan holda, ularning tinimsiz o'zgarib turuvchi ehtiyojlarini qondirishdan iborat.",
+        "system": "Sistema"
+    },
+    "signin": {
+        "registr": "Ro'yhatdan o'tish",
+        "fullname": "Ism, Familiya",
+        "email": "Email",
+        "reparol": "Parolni qayta terish",
+        "enter": "Kirish",
+        "remem": "Menga eslat",
+        "forget": "Parolni unutdingizmi",
+        "tiklash": "Parolni tiklash",
+        "phone": "Telefon raqam",
+        "tiklash_text": "Hisob qaydnomangizga bog'langan manzilni kiriting, biz sizga parolni o'zgartirish bo'yicha ko'rsatma yuboramiz. Ular sizning telegram manzilingizga tushadi shuning uchun tekshiring."
+    },
+    "turnon": {
+        "text": "Dora IT group saytiga tashrifingizdan mamnunmiz",
+        "back": "Saytga qaytish"
+    },
+    "edit": {
+        "edit_profil": "Chiqish",
+        "change": "Profil rasmini o'zgartirish",
+        "username": "Username",
+        "instagram": "Instagram havolangizni qo'shishingiz mumkin",
+        "facebook": "Facebook havolangizni qo'shishingiz mumkin",
+        "telegram": "Telegram havolangizni qo'shishingiz mumkin",
+        "edit": "Tahrirlash"
+    }
+}

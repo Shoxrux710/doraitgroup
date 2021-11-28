@@ -1,0 +1,7 @@
+export const USER_TO_PROFILE = "USER_TO_PROFILE"
+export const LOGOUT = "LOGOUT"
+export const LENGTH_PORT = "LENGTH_PORT"
+export const LENGTH_NEW = "LENGTH_NEW"
+export const LENGTH_USER = "LENGTH_USER"
+export const LENGTH_BLOG = "LENGTH_BLOG"
+export const HOME_BLOG = "HOME_BLOG"

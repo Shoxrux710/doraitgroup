@@ -1,0 +1,167 @@
+.new{
+    display: flex;
+    justify-content: space-between;
+}
+.new .left_new {
+    width: 40%;
+    height: 100%;
+    border-right: 1px solid #D7D7D7;
+    padding-right: 20px;
+}
+.new .right_new{
+    width: 58%;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    overflow-y: scroll;
+}
+.new .form-file {
+    position: relative;
+}
+
+.new .form-file input {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    opacity: 0;
+}
+
+.new .form-file label {
+    display: flex;
+    align-items: center;
+}
+
+.new label .fa {
+    color: #484848;
+    font-size: 24px;
+}
+
+.new label span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #DEDEDE
+}
+
+.new .left_new .image {
+    width: 100%;
+    height: 240px;
+    border: 1px solid #E3E3E3;
+    margin-top: 25px;
+}
+
+.new .space input {
+    border: none;
+    width: 100%;
+    outline: none;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+
+}
+
+.new .space textarea {
+    border: none !important;
+    margin-top: 20px;
+    padding-bottom: 60px;
+    padding-left: 5px;
+    outline: none;
+    width: 100%;
+
+}
+
+.new form button {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+    padding: 7px 28px;
+    border: none;
+    outline: none;
+    background: #4FD1C5;
+border-radius: 8px;
+margin-top: 15px;
+cursor: pointer;
+}
+.new .right_new .date{
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.new .left_new .image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.new .left_new .image img{
+    width: 100%;
+    position: absolute;
+    top: -25%;
+}
+/* .new .right_new .items{
+    display: flex;
+    width: 50%;
+    margin-bottom: 10px;
+} */
+/* .new .items img{
+    height: 100px;
+    width: 120px;
+    margin-right: 8px;
+}
+.new .items span{
+    color: #8F8F8F;
+    font-family: Roboto;
+    font-size: 12px;
+}
+.new .items .date_one{
+    margin-right: 4px;
+}
+.new .items .fa{
+    color: #8F8F8F;
+}
+.new .items .line{
+    height: 16px;
+    border: 1px solid #8F8F8F;
+    margin: 0px 2px;
+}
+.new .items .on{
+    color: #8F8F8F;
+    font-size: 18px;
+    cursor: pointer;
+}
+.new .items .date p{
+    color: black;
+    font-size: 12px;
+    line-height: 15px;
+}
+.new .items .date_two{
+    position: relative; 
+}
+.new .items .date_two .position{
+    position: absolute;
+    top: 20px;
+    right: -70px;
+    background-color: white;
+    box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    padding: 6px 4px;
+    opacity: 0;
+}
+.new .items .date_two .position.active{
+    opacity: 1;
+}
+.new .items .date_two .position p{
+    display: flex;
+    align-items: center;
+    color: white;
+     background: #4FD1C5;
+     padding: 3px 4px;
+     border-radius: 4px;
+     margin: 6px;
+     cursor: pointer;
+} */

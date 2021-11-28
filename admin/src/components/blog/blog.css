@@ -1,0 +1,131 @@
+.blog {
+    display: flex;
+}
+
+.blog ul {
+    padding: 0;
+}
+
+.blog ul li {
+    list-style: none;
+}
+
+.blog ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    color: #3E3E3E;
+}
+
+.blog .blog_search {
+    width: 20%;
+    height: auto;
+    overflow-y: scroll;
+    border-right: 1px solid #D7D7D7;
+}
+
+.blog .blog_items {
+    width: 80%;
+    height: 600px;
+    overflow-y: scroll;
+    padding: 15px;
+}
+
+.blog input {
+    font-size: 16px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    padding-left: 14px;
+    box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.05);
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.blog .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog .scroll {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog .blog_items .items {
+    position: relative;
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 6px 6px 32px rgba(185, 185, 185, 0.25);
+    border-radius: 12px;
+    padding: 15px;
+    width: 48%;
+    margin-bottom: 30px;
+}
+
+.blog .blog_items .items .date {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-weight: normal;
+    font-size: 14px;
+    color: #4F4F4F;
+}
+
+.blog .blog_items .items .view {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 15px;
+    color: #4F4F4F;
+}
+
+.blog .items img {
+    width: 140px;
+    height: 140px;
+    margin-right: 20px;
+}
+
+.blog .items .title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: black;
+    margin: 10px 0 10px;
+}
+
+.blog .items .lorem p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+}
+.blog .blog_items .top p{
+    font-style: normal;
+font-weight: 500;
+font-size: 17px;
+line-height: 24px;
+color: #000000;
+}
+.blog .blog_items .top p span{
+    font-style: normal;
+font-weight: normal;
+font-size: 14px;
+color: #000000;
+}
+
+.blog .blog_items .product img{
+    width: 100%;
+    height: auto;
+}

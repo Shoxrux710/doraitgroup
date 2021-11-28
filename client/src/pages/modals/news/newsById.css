@@ -1,0 +1,118 @@
+.news-by-id {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+}
+
+.news-by-id .left {
+  width: 60%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-by-id .left .bg {
+  width: 100%;
+  height: 250px;
+  background-image: url("../../../img/news-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.news-by-id .left h5 {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: Inter;
+  margin: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.news-by-id .left p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  align-items: center;
+  color: #000000;
+  text-align: justify;
+}
+
+.news-by-id .right {
+  width: 40%;
+  padding-left: 20px;
+}
+
+.news-by-id .right h3 {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.news-by-id .right .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-by-id .right .wrapper .qator {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.news-by-id .right .wrapper .qator .left-img {
+  border-radius: 8px;
+  width: 40%;
+  height: 100px;
+  background-image: url("../../../img/news-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.news-by-id .right .wrapper .qator .right-data {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.news-by-id .right .wrapper .qator .right-data .date {
+  display: flex;
+  width: 100%;
+  color: #8f8f8f;
+  justify-content: space-around;
+}
+
+.news-by-id .right .wrapper .qator .right-data .date .left-side,
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-by-id .right .wrapper .qator .right-data .date img {
+  margin-right: 5px;
+}
+
+.news-by-id .right .wrapper .qator .right-data .text {
+  width: 100%;
+  text-align: justify;
+}
+
+.news-by-id .right .wrapper .qator .right-data .text p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+}

@@ -1,0 +1,212 @@
+.about-modal {
+  width: 100%;
+  font-family: "w95fa", sans-serif;
+}
+
+.about-modal h1 {
+  font-weight: normal;
+  font-size: 56px;
+  line-height: 53px;
+  color: #000000;
+  text-align: center;
+}
+
+.about-modal .p-wrap {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-modal .p-wrap.secondP {
+  width: 90%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.about-modal .p-wrap p {
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+
+.about-modal .img-wrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-modal h2 {
+  font-weight: normal;
+  font-size: 32px;
+  margin: 0;
+  line-height: 30px;
+  color: #000000;
+  margin-left: 20px;
+}
+
+.about-modal .team-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-modal .team-wrapper .person {
+  position: relative;
+  width: 188px;
+  height: 220px;
+  margin: 10px;
+  background: #ffffff;
+  box-shadow: 4px 4px 16px rgba(206, 206, 206, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.about-modal .team-wrapper .person h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+}
+
+.about-modal .team-wrapper .person h6 {
+  margin: 0;
+  font-size: 10px;
+}
+
+.about-modal .team-wrapper .image {
+  display: block;
+  height: auto;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 10px;
+}
+
+.about-modal .team-wrapper .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 4px 4px 16px rgba(170, 194, 255, 0.35);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.about-modal .team-wrapper .person:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+.about-modal .team-wrapper .overlay h4 {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 13px;
+  color: #000000;
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.about-modal .team-wrapper .overlay h6 {
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.about-modal .team-wrapper .overlay div {
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.about-modal .team-wrapper .overlay div.socials {
+  margin-bottom: 20px;
+}
+
+.about-modal .team-wrapper .overlay div p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+.about-modal .team-wrapper .overlay div span {
+  margin: 0;
+  font-size: 16px;
+  color: #878787;
+  line-height: 16px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+
+.about-modal .team-wrapper .overlay .socials a {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+@media (max-width: 1400px) {
+  .about-modal h1 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+  .about-modal .p-wrap {
+    width: 80%;
+  }
+  .about-modal .p-wrap p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .about-modal .img-wrapper {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .about-modal .img-wrapper img {
+    height: 200px;
+    width: 350px;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-modal .img-wrapper {
+    padding: 10px;
+  }
+  .about-modal .img-wrapper img {
+    height: 150px;
+    width: 250px;
+    margin: 20px auto;
+  }
+  .about-modal .p-wrap.secondP {
+    width: 96%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .about-modal .p-wrap p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .about-modal .p-wrap.secondP p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
