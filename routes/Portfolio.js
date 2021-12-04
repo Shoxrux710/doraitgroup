@@ -35,7 +35,8 @@ router.post('/all', isAuthMiddleware, attachUserMiddleware, checkRoleMiddleware(
         titleEn,
         descriptionUz,
         descriptionRu,
-        descriptionEn
+        descriptionEn,
+        link
     } = req.body
 
     const {filename} = req.files.imagePort[0]
@@ -52,6 +53,7 @@ router.post('/all', isAuthMiddleware, attachUserMiddleware, checkRoleMiddleware(
             ru: descriptionRu,
             en: descriptionEn,
         },
+        link,
         imagePort: {
             fileName: filename,
             fileUrl: `./portfolio/${filename}`
@@ -132,7 +134,8 @@ router.put('/update/:id', isAuthMiddleware, attachUserMiddleware, checkRoleMiddl
         titleEn,
         descriptionUz,
         descriptionRu,
-        descriptionEn
+        descriptionEn,
+        link
     } = req.body
 
     Portfolio.findById(id, (err, onePort) => {
@@ -157,6 +160,7 @@ router.put('/update/:id', isAuthMiddleware, attachUserMiddleware, checkRoleMiddl
             fileName: filename,
             fileUrl: `./portfolio/${filename}`
         }
+        onePort.link = link
 
         onePort.save(async (err) => {
             if (err) return res.status(400).json({errorMessage: "Xato"})

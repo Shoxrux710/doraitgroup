@@ -8,7 +8,28 @@ const jwt = require('jsonwebtoken')
 const blogAuthMiddleware = require('../middleware/blogAuth');
 const blogUserMiddleware = require('../middleware/blogUser');
 const Blog = require('../models/Blog')
+const path = require('path')
+const fs = require('fs')
 const router = Router()
+
+
+const deleteOldImage = (fileName) => {
+
+    return new Promise((resolve, reject) => {
+        fs.unlink(path.join(__dirname, `../client/public/user/${fileName}`),(err) => {
+            resolve()
+        })
+    }) 
+}
+
+const deleteUserImage = (fileName) => {
+    
+    return new Promise((resolve, reject) => {
+        fs.unlink(path.join(__dirname, `../client/public/blog/${fileName}`), (err) => {
+            resolve()
+        })
+    })
+}
 
 
 // register
@@ -157,6 +178,14 @@ router.get('/all', async (req, res) => {
     }
 })
 
+// get:id
+
+router.get('/all/put', blogAuthMiddleware, blogUserMiddleware, (req, res) => {
+    
+    res.status(200).json({ user: req.user })
+   
+})
+
 
 // delete
 
@@ -166,14 +195,63 @@ router.delete('/delete/:id', async (req, res) => {
 
     try {
         await User.deleteOne({_id: id})
-        await Blog.deleteMany({userId: id})
+        const blogs = await Blog.find({userId: id})
 
+        for (let i = 0; i < blogs.length; i++) {
+
+            const {imageBlog} = blogs[i]
+            const oldFileName = imageBlog.fileName
+            await deleteUserImage(oldFileName)
+        }
+
+        await Blog.deleteMany({userId: id})
         res.status(200).json({successMessage: "Delete"})
 
     } catch (err) {
         res.status(400).json({ errorMessage: "Xato" })
     }
             
+
+})
+
+// update
+
+router.put('/update', blogAuthMiddleware, (req, res) => {
+
+    // const {id} = req.params
+
+    const {
+        telegram,
+        facebook,
+        instagram,
+        login
+    } = req.body
+
+    User.findById(req.decodedUser.id, (err, users) => {
+        const {imagesUser} = users
+
+        const oldFileName = imagesUser.fileName
+
+        const filename = req.files.imagesUser ? req.files.imagesUser[0].filename : oldFileName
+
+        users.telegram = telegram
+        users.facebook = facebook
+        users.instagram = instagram
+        users.login = login
+        users.imagesUser = {
+            fileName: filename,
+            fileUrl: `./user/${filename}`
+        }
+
+        users.save(async (err) => {
+            if (err) return res.status(400).json({errorMessage: "Xato"})
+            req.files.imagesUser ? deleteOldImage(oldFileName) : null
+            res.status(200).json({successMessage: "Yangilandi"})
+        })
+
+    })
+
+
 
 })
 

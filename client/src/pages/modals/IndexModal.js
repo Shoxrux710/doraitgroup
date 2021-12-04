@@ -153,7 +153,9 @@ export const IndexModal = (props) => {
                         <Route path='/then/contact' component={Contact} />
                         <Route path='/then/services' component={Services} />
                         <Route path='/then/about' component={About} />
-                        <Route path='/then/edit' component={Edit} />
+                        <Route path='/then/edit'>
+                            <Edit setOpenModal={setOpenModal} setVisible={setVisible} />
+                        </Route>
                     </Switch>
                 </div>
                 <div className='bottom'>

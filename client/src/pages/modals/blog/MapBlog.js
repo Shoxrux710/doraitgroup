@@ -56,19 +56,25 @@ const MapBlog = (props) => {
                   <img src={isLiked2} onClick={() => setLiked2(!liked2)} alt='like' />
                   <img src={socials} alt='like' onClick={() => setOpen(!open)} />
                   <div className={openSocials} >
-                    <a href='/'>
+                    {
+                      userId.instagram ? <a href='/'>
                       <img src={instagram} alt="instagram" />
                       <span>Instagram</span>
-                    </a>
-                    <a href='/'>
+                    </a> : ''
+                    }
+                    {
+                      userId.telegram ? <a href={`http://t.me/${userId.telegram}`} target='_blank' rel="noreferrer">
                       <img src={telegram} alt="instagram" />
                       <span>Telegram</span>
-                    </a>
-                    <a href='/'>
+                    </a> : ''
+                    }
+                    {
+                      userId.facebook ? <a href={`http://facebook.com/${userId.facebook}`} target='_blank' rel="noreferrer">
                       <img src={facebook} alt="instagram" />
                       <span>Facebook</span>
-                    </a>
-                    <a href='/'>
+                    </a> : ''
+                    }
+                    <a href={`http://instagram.com/${userId.instagram}`} target='_blank' rel="noreferrer">
                       <img src={havola} alt="instagram" />
                       <span>Havola</span>
                     </a>

@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_REGISTER} from './Types'
+import {USER_LOGIN, USER_REGISTER, LOGOUT, LANGS} from './Types'
 
 export const userProfile = (items) => {
 
@@ -11,10 +11,27 @@ export const userProfile = (items) => {
 }
 export const resProfile = (items) => {
 
-    window.localStorage.setItem('resAuth', JSON.stringify(items))
+    window.localStorage.setItem('auth', JSON.stringify(items))
 
     return {
         type: USER_REGISTER,
         payload: items
+    }
+}
+
+export const logOut = () => {
+    
+    window.localStorage.removeItem('auth')
+
+    return {
+        type: LOGOUT
+    }
+}
+
+export const langThree = (langs) => {
+    
+    return {
+        type: LANGS,
+        payload: langs
     }
 }

@@ -1,54 +1,161 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './edit.css'
 import panda from '../../../img/panda.png'
+import { useSelector, useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
+import { useHistory } from 'react-router-dom'
+import {logOut} from '../../../redux/action/userAction'
+import axios from 'axios'
 
-const Edit = () => {
+const Edit = ({ setOpenModal, setVisible }) => {
 
     const { t } = useTranslation()
+    const dispatch = useDispatch()
+
+    const { token } = useSelector(state => state.userLogin)
+
+    const [imagesUser, setImagesUser] = useState(null)
+    const [telegram, setTelegram] = useState('')
+    const [facebook, setFacebook] = useState('')
+    const [instagram, setInstagram] = useState('')
+    const [login, setLogin] = useState('')
+    const [userId, setUserId] = useState({})
+    const [avatarFront, setAvatarFront] = useState(null);
+    const [imageUrl, setImageUrl] = useState(null)
+
+    const history = useHistory()
+
+    useEffect(() => {
+        axios.get('/api/client/all/put', {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }).then(response => {
+            setUserId(response.data.user);
+            setLogin(response.data.user.login)
+            setTelegram(response.data.user.telegram)
+            setFacebook(response.data.user.facebook)
+            setInstagram(response.data.user.instagram)
+            setImageUrl(response.data.user.imagesUser.fileName)
+            
+        })
+
+    },[token])
+
+    console.log("fsfsd", imageUrl);
+
+    const onSubmit = (e) => {
+        
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        axios.put(`/api/client/update`, formData, {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }).then(response => {
+            toast.success(response.data.successMessage)
+            history.push('/then')
+            setAvatarFront(null)
+            setImageUrl(null)
+            setImagesUser(null)
+            setOpenModal(false)
+            setVisible(false)
+        }).catch((err) => {
+            toast.error(err.response.data.errorMessage)
+        })
+    }
+
+    const img = imageUrl ? imageUrl : null
+
+    let avatarImg
+
+    if (imageUrl && !avatarFront){
+        avatarImg = `/user/${img}`
+    }
+    else if(avatarFront){
+        avatarImg = URL.createObjectURL(avatarFront)
+    }else{
+        avatarImg = panda
+    }
+
+    // console.log("images",avatarImg);
 
     return (
-        <form className='edit-modal'>
+        <form
+            className='edit-modal'
+            onSubmit={onSubmit}
+        >
             <div className='top'>
                 <div>
-                    <img src={panda} alt='user' />
-                    <h2>{t('edit.username')}</h2>
+                    <img src={avatarImg} alt='' />
+                    <h2>{userId.name}</h2>
                 </div>
                 <div>
-                    <h2>{t('edit.edit_profil')}</h2>
+                    <h2
+                    onClick={() => {dispatch(logOut()); setOpenModal(false); setVisible(false)}}
+                    >{t('edit.edit_profil')}</h2>
                 </div>
             </div>
 
             <div className='add-pic'>
-                <label for='file'><div className='user-pic'></div></label>
                 <div className='input-wrap'>
-                    <input id='file' type='file' />
+                    <input
+                        type='file'
+                        name="imagesUser"
+                        files={imagesUser}
+                        onChange={(e) => {
+                            setImagesUser(e.target.files)
+                            const file = Array.from(e.target.files);
+                            setAvatarFront(file[0]);
+                        }}
+                    />
                 </div>
-                <label for='file'><p>{t('edit.change')}</p></label>
+                <label><p>{t('edit.change')}</p></label>
             </div>
 
             <div className='label-input'>
-                <label for='name' >{t('edit.username')}</label>
-                <input id='name' />
+                <label htmlFor='name' >{t('edit.username')}</label>
+                <input
+                    id='name'
+                    name="login"
+                    value={login}
+                    onChange={(e) => setLogin(e.target.value)}
+                />
             </div>
 
             <div className='label-input'>
-                <label for='instagram' >{t('edit.instagram')}</label>
-                <input id='instagram' />
+                <label htmlFor='instagram' >{t('edit.instagram')}</label>
+                <input
+                    id='instagram'
+                    name="instagram"
+                    value={instagram}
+                    onChange={(e) => setInstagram(e.target.value)}
+                />
             </div>
 
             <div className='label-input'>
-                <label for='facebook' >{t('edit.facebook')}</label>
-                <input id='facebook' />
+                <label htmlFor='facebook' >{t('edit.facebook')}</label>
+                <input
+                    id='facebook'
+                    name="facebook"
+                    value={facebook}
+                    onChange={(e) => setFacebook(e.target.value)}
+                />
             </div>
 
             <div className='label-input'>
-                <label for='telegram' >{t('edit.telegram')}</label>
-                <input id='telegram' />
+                <label htmlFor='telegram' >{t('edit.telegram')}</label>
+                <input
+                    id='telegram'
+                    name="telegram"
+                    value={telegram}
+                    onChange={(e) => setTelegram(e.target.value)}
+                />
             </div>
 
             <div className='btn-wrap'>
-                <button>{t('edit.edit')}</button>
+                <button type="submit">{t('edit.edit')}</button>
             </div>
         </form>
     )

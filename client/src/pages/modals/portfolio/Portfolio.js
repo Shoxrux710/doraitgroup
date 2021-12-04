@@ -3,11 +3,14 @@ import './portfolio.css'
 import uchburchak from '../../../img/uchburchak.png'
 import axios from 'axios'
 import Loading from '../../../loader/Loading'
+import { useSelector } from 'react-redux'
+
 
 const Portfolio = () => {
 
     const [portClient, setPortClient] = useState([])
     const [loading, setLoading] = useState(true)
+    const {lang} = useSelector(state => state.userLogin)
 
     useEffect(() => {
         setLoading(true)
@@ -32,11 +35,11 @@ const Portfolio = () => {
                     loading ? <Loading /> : 
                     portClient.map((items, index) => {
                         return (
-                            <a href="/" className="portfolio" key={index}>
+                            <a href={`http://${items.link}`} target="_blank" rel="noreferrer" className="portfolio" key={index}>
                                 <div className='image-wrap' style={{backgroundImage: `url(http://localhost:3000/portfolio/${items.imagePort.fileName})`}}></div>
                                 <div className='text-wrapper'>
-                                    <h3>{items.title.uz}</h3>
-                                    <p>{items.description.uz}</p>
+                                    <h3>{items.title[lang]}</h3>
+                                    <p>{items.description[lang]}</p>
                                 </div>
                             </a>
                         )

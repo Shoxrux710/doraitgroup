@@ -3,7 +3,6 @@ import { MdDateRange } from 'react-icons/md';
 import { AiOutlineEye } from 'react-icons/ai';
 import { BsArrowUp } from 'react-icons/bs';
 import { FaUserCircle } from 'react-icons/fa';
-import { IoMdEye } from 'react-icons/io'
 import './home.css'
 
 const Home = (props) => {
@@ -29,9 +28,7 @@ const Home = (props) => {
                 <div className="blog">
                     <div className="dail">
                         <h3>News</h3>
-                        <p>Daily views</p>
-                        <h5><BsArrowUp className="top" /> 100</h5>
-                        <p>Daily news</p>
+                        <p>Added news</p>
                         <h5><BsArrowUp className="top" />{newCount}</h5>
                     </div>
                 </div>
@@ -85,9 +82,7 @@ const Home = (props) => {
                 <div className="blog">
                     <div className="dail">
                         <h3>Portfolio</h3>
-                        <p>Monthly viewed Portfolio</p>
-                        <h5><BsArrowUp className="top" /> 100</h5>
-                        <p>Portfolio viewed monthly</p>
+                        <p>Added portfolio</p>
                         <h5><BsArrowUp className="top" />{portCount}</h5>
                     </div>
                 </div>
@@ -99,13 +94,13 @@ const Home = (props) => {
                                 portloading ? <>Loading</> :
                                 portHome.map((items) => {
                                 return (
-                                    <>
+                                    <a href={`http://${items.link}`} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}>
                                         <div className="images" key={items._id}>
                                             <img src={`/portfolio/${items.imagePort.fileName}`} alt="" />
                                         </div>
                                         <h3>{items.title.uz}</h3>
                                         <p>{items.description.uz}</p>
-                                    </>
+                                    </a>
                                 )
                             })
                             }
@@ -117,9 +112,7 @@ const Home = (props) => {
                 <div className="blog">
                     <div className="dail">
                         <h3>Blog</h3>
-                        <p>Daily added blogs</p>
-                        <h5><BsArrowUp className="top" /> 100</h5>
-                        <p>Daily viewed blogs</p>
+                        <p>Added blogs</p>
                         <h5><BsArrowUp className="top" />{blogCount}</h5>
                     </div>
                 </div>
@@ -150,7 +143,6 @@ const Home = (props) => {
                                 <div className="date">{items.date.substring(0, 10)}</div>
                                 <div className="title">{items.title}</div>
                                 <p>{descriptionContinue}{continueText}</p>
-                                <div className="view"><IoMdEye />{items.view}</div>
                             </div>
                             </div>
                            )
@@ -165,9 +157,7 @@ const Home = (props) => {
                 <div className="blog">
                     <div className="dail">
                         <h3>Account</h3>
-                        <p>Daily added accounts</p>
-                        <h5><BsArrowUp className="top" /> 100</h5>
-                        <p>Monthly added accounts</p>
+                        <p>Added accounts</p>
                         <h5><BsArrowUp className="top" />{userCount}</h5>
                     </div>
                 </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import Menu from './components/menu/Menu'
 import Header from './components/header/Header'
 import Login from './components/login/Login'
-import Password from './components/password/Password'
 import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
@@ -26,7 +25,6 @@ const App = () => {
   const loginRoutes = (
     <Switch>
       <Route path="/admin/login" component={Login} />
-      <Route path="/admin/reset" component={Password} />
       <Redirect to="/admin/login" />
     </Switch>
   )

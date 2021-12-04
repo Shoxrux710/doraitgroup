@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Table } from 'react-bootstrap';
 import { Pagination } from 'antd'
-import { RiDeleteBinLine } from 'react-icons/ri';
+import AccountId from './AccountId'
 import './account.css'
 
 const Account = (props) => {
@@ -35,17 +35,12 @@ const Account = (props) => {
                             ) :
                                 <>
                                     {account.map((item) => {
-
                                         return (
-                                            <tr key={item.users._id}>
-                                                <td>{item.users.login}</td>
-                                                <td>{item.users.email}</td>
-                                                <td>{item.users.name}</td>
-                                                <td>{item.blogsLangth}</td>
-                                                <td><RiDeleteBinLine
-                                                onClick={() => onDelete(item.users._id)}
-                                                className="delete" /></td>
-                                            </tr>
+                                            <AccountId 
+                                            key={item._id}
+                                            {...item}
+                                            onDelete={onDelete}
+                                            />
                                         )
                                     })}
                                 </>

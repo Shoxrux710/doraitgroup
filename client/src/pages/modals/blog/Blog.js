@@ -42,9 +42,10 @@ const Blog = (props) => {
   const [data, setData] = useState({})
   const [blogMy, setBlogMy] = useState([])
   const [oneBlog, setOneBlog] = useState([])
+  const [userImg, setUserImg] = useState(null)
   const history = useHistory()
 
-  useEffect(() => {
+  const productBlog = () => {
     axios.get('/api/client/data', {
       headers: {
         'authorization': `Bearer ${token}`
@@ -54,6 +55,34 @@ const Blog = (props) => {
         setData(response.data.name)
         setBlogMy(response.data.blogs)
       })
+  }
+
+  const deleteBlogs = (id) => {
+    axios.delete(`/api/blog/delete/${id}`)
+          .then(response => {
+            toast.success(response.data.successMessage)
+            productBlog()
+          }).catch(err => {
+            toast.error(err.response.data.errorMessage)
+          })
+  }
+
+  const userBlogs = () => {
+    axios.get('/api/client/all/put', {
+      headers: {
+        'authorization': `Bearer ${token}`
+    }
+    })
+    .then(response => {
+      setUserImg(response.data.user.imagesUser)
+    })   
+  }
+
+  const images = userImg ? userImg.fileName : null
+
+  useEffect(() => {
+    productBlog()
+    userBlogs()
   }, [])
 
   useEffect(() => {
@@ -108,8 +137,6 @@ const Blog = (props) => {
     setImageBlog(null)
   }
 
-  const stylesWrap = description.length > 0 ? 'styles-wrapper styles-wrapper-act' : 'styles-wrapper'
-
   // ................................................................ \\
 
   const wrapper = (
@@ -133,7 +160,9 @@ const Blog = (props) => {
     <div className='nashr' >
       <div className='top-nashr'>
         <div className='left'>
-          <img src={panda} alt='avatar' />
+          {
+            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+          }
           <h3>{data}</h3>
         </div>
         <div className='right'>
@@ -172,7 +201,9 @@ const Blog = (props) => {
     <div className='tahrir'>
       <div className='top-nashr'>
         <div className='left'>
-          <img src={panda} alt='avatar' />
+        {
+            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+          }
           <h3>{data}</h3>
         </div>
         <div className='right'>
@@ -193,14 +224,6 @@ const Blog = (props) => {
               setDescription(e.target.value)
             }} />
           <p className='p' >{description}</p>
-          {/* <div className={stylesWrap}>
-            <img src={h2} alt='h2' onClick={() => setStyles('h2')} />
-            <img src={h3} alt='h3' onClick={() => setStyles('h3')} />
-            <img src={liner} alt='liner' onClick={() => setStyles('liner')} />
-            <img src={bold} alt='bold' onClick={() => setStyles('bold')} />
-            <img src={s} alt='s' onClick={() => setStyles('s')} />
-            <img src={i} alt='i' onClick={() => setStyles('i')} />
-          </div> */}
         </div>
       </div>
     </div>
@@ -216,7 +239,9 @@ const Blog = (props) => {
     <div>
       <div className='user-panel'>
         <div className='inner-user'>
-          <img src={panda} alt='img' />
+        {
+            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+          }
           <h3>{data}</h3>
         </div>
         <div className='number-follower-wrap'>
@@ -241,23 +266,28 @@ const Blog = (props) => {
       <div className='one-blog'>
         <div className='top'>
           <div>
-            <img src={panda} alt='img' />
+          {
+            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+          }
             <h3>{data}</h3>
           </div>
         </div>
 
         <div className='blog-body myblog'>
           {
-            blogMy.map((items, index) => {
+            blogMy.map((items) => {
               return (
                 <div className='inner-blog-body'>
                  <div className='bg-img' style={{backgroundImage: `url(/blog/${items.imageBlog.fileName})`}}></div>
-                  <div className='right-texts' key={index}>
+                  <div className='right-texts' key={items._id}>
                     <h1>{items.title}</h1>
                     <p>{items.description}</p>
                   </div>
                   
-                  <div className='delete-blog'>
+                  <div 
+                  className='delete-blog'
+                  onClick={() => deleteBlogs(items._id)}
+                  >
                     <img src={garbage} alt='delete' />
                   </div>
                 </div>

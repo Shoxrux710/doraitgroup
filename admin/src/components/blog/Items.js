@@ -1,12 +1,10 @@
 import React from 'react'
-import { IoMdEye } from 'react-icons/io'
+// import { IoMdEye } from 'react-icons/io'
 
 
 const Items = (props) => {
 
     const { blogsId, id, blogCount } = props
-
-    console.log("id", id);
 
     const blogs = id ? (
                     <>
@@ -24,7 +22,7 @@ const Items = (props) => {
                                                 <div className="date">{items.date.substring(0, 10)}</div>
                                                 <div className="title">{items.title}</div>
                                                 <p>{items.description}</p>
-                                                <div className="view"><IoMdEye /> {items.view}</div>
+                                                {/* <div className="view"><IoMdEye /> {items.view}</div> */}
                                             </div>
                                         </div>
                                     )

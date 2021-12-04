@@ -19,6 +19,28 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 4
+    },
+    imagesUser: {
+        fileName: {
+            type: String,
+            default: null
+        },
+        fileUrl: {
+            type: String,
+            default: null
+        }
+    },
+    telegram: {
+        type: String,
+        default: null
+    },
+    instagram: {
+        type: String,
+        default: null
+    },
+    facebook: {
+        type: String,
+        default: null
     }
 })
 

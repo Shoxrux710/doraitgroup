@@ -19,7 +19,6 @@ const Menu = () => {
         const rToken = userData ? userData.rToken : null;
         axiosInterceptors.delete(`/api/user/logout?refreshToken=${rToken}`)
             .then((response) => {
-                console.log(response);
                 dispatch(logOut());
             })
             .catch((err) => {

@@ -83,9 +83,10 @@ padding: 13px 120px 13px 20px;
 .homes .blog h3 {
     font-style: normal;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37px;
     color: #2D3748;
+    margin-bottom: 30px;
 }
 
 .homes .blog h5 {
@@ -131,10 +132,10 @@ padding: 13px 120px 13px 20px;
 .homes .port h3 {
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 30px;
     line-height: 28px;
     color: #2D2D2D;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 .homes .port .images img {

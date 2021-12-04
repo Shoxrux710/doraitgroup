@@ -21,16 +21,16 @@ export const Contact = () => {
                 <form>
                     <div className='input-wrap'>
                         <div>
-                            <label for='name'>{t('contact.name')}:</label>
+                            <label htmlFor='name'>{t('contact.name')}:</label>
                             <input type='text' id='name' required />
                         </div>
                         <div>
-                            <label for='phone'>{t('contact.phone')}:</label>
+                            <label htmlFor='phone'>{t('contact.phone')}:</label>
                             <ReactInputMask id='phone' type='text' mask="+\9\9\8 (99) 999-99-99" required />
                         </div>
                     </div>
                     <div className='textarea-wrap'>
-                        <label for='comment' className='izoh-label'>{t('contact.comment')}:</label>
+                        <label htmlFor='comment' className='izoh-label'>{t('contact.comment')}:</label>
                         <textarea id='comment' required></textarea>
                     </div>
                     <div className='button-wrap'>

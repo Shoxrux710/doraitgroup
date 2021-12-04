@@ -12,6 +12,9 @@ const storage = multer.diskStorage({
         if (file.fieldname === 'imageBlog'){
             cb(null, `./client/public/blog`)
         }
+        if (file.fieldname === 'imagesUser'){
+            cb(null, `./client/public/user`)
+        }
     },
 
     filename(req, file, cb){

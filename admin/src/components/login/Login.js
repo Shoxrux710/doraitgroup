@@ -3,7 +3,6 @@ import axios from '../../utils/axiosInterceptors'
 import { toast } from 'react-toastify'
 import { userInform } from '../../redux/action/userAction'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
 import './login.css'
 
 const Login = () => {
@@ -54,7 +53,6 @@ const Login = () => {
                         }}
                     />
                 </div>
-                <p><Link to="/admin/reset">parolni unutdingiz</Link></p>
                 <div className="button">
                     <button type="submit">login</button>
                 </div>

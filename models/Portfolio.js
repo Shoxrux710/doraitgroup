@@ -13,6 +13,10 @@ const portSchema = new Schema({
         ru: String,
         en: String,
     },
+    link: {
+        type: String,
+        required: true
+    },
     imagePort: {
         fileName: String,
         fileUrl: String

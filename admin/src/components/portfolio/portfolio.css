@@ -101,3 +101,10 @@ cursor: pointer;
     align-items: center;
     margin-bottom: 12px;
 }
+.portfolio .control input{
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    outline: none;
+    width: 80%;
+    margin-top: 30px;
+    padding: 5px 0 5px 5px;
+}

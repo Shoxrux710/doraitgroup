@@ -20,7 +20,8 @@ app.use(cors())
 app.use(middleware.fields([
     {name: 'imageNews', maxCount: 1},
     {name: 'imagePort', maxCount: 1},
-    {name: 'imageBlog', maxCount: 1}
+    {name: 'imageBlog', maxCount: 1},
+    {name: 'imagesUser', maxCount: 1}
 ]))
 
 

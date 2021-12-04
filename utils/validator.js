@@ -15,7 +15,8 @@ exports.portValidator = [
     body('titleEn').isLength({min: 1}),
     body('descriptionUz').isLength({min: 1}),
     body('descriptionRu').isLength({min: 1}),
-    body('descriptionEn').isLength({min: 1})
+    body('descriptionEn').isLength({min: 1}),
+    body('link').isLength({min: 1})
 ]
 
 exports.authValidator = [

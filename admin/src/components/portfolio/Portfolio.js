@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import { BiPlusCircle } from 'react-icons/bi';
 import { Tabs, Radio, Space } from 'antd';
 import { toast } from 'react-toastify'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import axios from '../../utils/axiosInterceptors'
 import PortItems from './PortItems'
 import './portfolio.css'
 
 const Portfolio = (props) => {
 
-    const {port, deleteOne, id, portProduct} = props
+    const { port, deleteOne, id, portProduct } = props
 
     const { TabPane } = Tabs;
     const history = useHistory()
@@ -20,25 +20,27 @@ const Portfolio = (props) => {
     const [descriptionUz, setDescriptionUz] = useState("")
     const [descriptionRu, setDescriptionRu] = useState("")
     const [descriptionEn, setDescriptionEn] = useState("")
+    const [link, setLink] = useState("")
     const [imagePort, setImagePort] = useState(null)
     const [avatarFront, setAvatarFront] = useState(null);
     const [imageUrl, setImageUrl] = useState("")
 
     useEffect(() => {
-       
-        if (id){
+
+        if (id) {
             axios.get(`/api/port/all/${id}`)
-            .then(response => {
-                const {title, description, imagePort } = response.data.onePort
-                console.log(response.data.onePort);
-                setTitleUz(title.uz)
-                setTitleRu(title.ru)
-                setTitleEn(title.en)
-                setDescriptionUz(description.uz)
-                setDescriptionRu(description.ru)
-                setDescriptionEn(description.en)
-                setImageUrl(imagePort.fileName)
-            })
+                .then(response => {
+                    const { title, description, imagePort, link } = response.data.onePort
+                    console.log(response.data.onePort);
+                    setTitleUz(title.uz)
+                    setTitleRu(title.ru)
+                    setTitleEn(title.en)
+                    setDescriptionUz(description.uz)
+                    setDescriptionRu(description.ru)
+                    setDescriptionEn(description.en)
+                    setLink(link)
+                    setImageUrl(imagePort.fileName)
+                })
         }
 
     }, [id])
@@ -50,42 +52,43 @@ const Portfolio = (props) => {
 
         const method = id ? "put" : "post"
         const urlApi = id ? `/api/port/update/${id}` : `/api/port/all`
-        
+
         axios[method](urlApi, formData)
-              .then(response => {
+            .then(response => {
                 setTitleUz("")
                 setTitleRu("")
                 setTitleEn("")
                 setDescriptionUz("")
                 setDescriptionRu("")
                 setDescriptionEn("")
+                setLink("")
                 setImagePort(null)
                 setAvatarFront(null)
                 setImageUrl("")
                 portProduct()
                 toast.success(response.data.successMessage)
                 history.push('/admin/portfolio')
-              })  
-              .catch(err => {
+            })
+            .catch(err => {
                 toast.error(err.response.data.errorMessage)
-              })
+            })
 
     }
 
     let avatarImg
 
-    if (imageUrl && !avatarFront){
+    if (imageUrl && !avatarFront) {
         avatarImg = `/portfolio/${imageUrl}`
     }
-    else if(avatarFront){
+    else if (avatarFront) {
         avatarImg = URL.createObjectURL(avatarFront);
-    }else{
+    } else {
         avatarImg = "https://image.jimcdn.com/app/cms/image/transf/none/path/s282e5c140bd19b68/image/if276da1f9640480b/version/1580646418/image.png"
     }
 
     return (
         <div className="portfolio">
-                <div className="left_port">
+            <div className="left_port">
                 <form onSubmit={onSubmit}>
                     <div className="form-file">
                         <label><BiPlusCircle className="fa" /> <span>Portfolio...</span> </label>
@@ -169,14 +172,24 @@ const Portfolio = (props) => {
                             </TabPane>
                         </Tabs>
                     </div>
+                    <div className="control">
+                        <input
+                            type="text"
+                            name="link"
+                            value={link}
+                            placeholder="link"
+                            onChange={(e) => {
+                                setLink(e.target.value)
+                            }}
+                        />
+                    </div>
                     <button type="submit">
                         save
                     </button>
-                
                 </form>
             </div>
             <div className="right_port">
-                <PortItems port={port} deleteOne={deleteOne}/>
+                <PortItems port={port} deleteOne={deleteOne} />
             </div>
         </div>
     )

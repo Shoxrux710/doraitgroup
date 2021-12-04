@@ -42,7 +42,7 @@ const Future = () => {
     useEffect(() => {
         startTimer()
         return () => {
-        clearInterval(interval.current)
+        clearInterval(interval)
         }
     })
 
