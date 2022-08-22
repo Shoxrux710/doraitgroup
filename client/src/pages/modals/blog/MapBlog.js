@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next'
 
 const MapBlog = (props) => {
 
-    const {userId, title, description, imageBlog} = props
+    const {userId, title, description, imageBlog, images} = props
     const { t } = useTranslation()
     
   const [liked, setLiked] = useState(false)
@@ -25,13 +25,15 @@ const MapBlog = (props) => {
   const isLiked2 = liked2 ? like2 : like
   const isFollowed = followed ? followedImg : follow
 
+  let links = window.location.pathname ? "http://localhost:4008" : ''
+
   const openSocials = open ? 'socials-wrapper socials-wrapper-active' : 'socials-wrapper'
 
     return (
         <>
               <div className='top'>
                 <div>
-                  <img src={panda} alt='img' />
+                  {images ? <img src={`${links}/images/user/${images}`} alt='img' /> : <img src={panda} alt='img' />}
                   <h3>{userId.name}</h3>
                   <p>0 {t('blog.follower')}</p>
                 </div>
@@ -41,8 +43,9 @@ const MapBlog = (props) => {
               </div>
 
               <div className='blog-body'>
-                <div className='bg-img' style={{backgroundImage: `url(/blog/${imageBlog.fileName})`}}>
-                </div>
+                {/* <div className='bg-img' style={{backgroundImage: `url(${links}/images/blog/${imageBlog.fileName})`}}>
+                </div> */}
+                <img className='bg-img' src={`${links}/images/blog/${imageBlog.fileName}`} alt="" />
                 <div className='right-texts'>
                   <h1>{title}</h1>
                   <p>{description}</p>

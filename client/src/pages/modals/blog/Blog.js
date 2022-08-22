@@ -33,6 +33,8 @@ const Blog = (props) => {
   const { setOpenModal, setVisible } = props
   const { token } = useSelector(state => state.userLogin)
 
+  let links = window.location.pathname ? "http://localhost:4008" : ''
+
 
   const [imageBlog, setImageBlog] = useState(null);
   const [imgFilesUrl, setImgFilesUrl] = useState('');
@@ -45,7 +47,7 @@ const Blog = (props) => {
   const [userImg, setUserImg] = useState(null)
   const history = useHistory()
 
-  const productBlog = () => {
+  const productBlog = (token) => {
     axios.get('/api/client/data', {
       headers: {
         'authorization': `Bearer ${token}`
@@ -61,13 +63,13 @@ const Blog = (props) => {
     axios.delete(`/api/blog/delete/${id}`)
           .then(response => {
             toast.success(response.data.successMessage)
-            productBlog()
+            productBlog(token)
           }).catch(err => {
             toast.error(err.response.data.errorMessage)
           })
   }
 
-  const userBlogs = () => {
+  const userBlogs = (token) => {
     axios.get('/api/client/all/put', {
       headers: {
         'authorization': `Bearer ${token}`
@@ -81,9 +83,9 @@ const Blog = (props) => {
   const images = userImg ? userImg.fileName : null
 
   useEffect(() => {
-    productBlog()
-    userBlogs()
-  }, [])
+    productBlog(token)
+    userBlogs(token)
+  }, [token])
 
   useEffect(() => {
      axios.get('/api/blog/all?skip=0&limit=0')
@@ -161,7 +163,7 @@ const Blog = (props) => {
       <div className='top-nashr'>
         <div className='left'>
           {
-            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+            images ? <img src={`${links}/images/user/${images}`} alt='' /> : <img src={panda} alt='' />
           }
           <h3>{data}</h3>
         </div>
@@ -202,7 +204,7 @@ const Blog = (props) => {
       <div className='top-nashr'>
         <div className='left'>
         {
-            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+            images ? <img src={`${links}/images/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
           }
           <h3>{data}</h3>
         </div>
@@ -231,7 +233,7 @@ const Blog = (props) => {
 
   const allBlogs = (
     <div className='all-blogs'>
-      <OneBlog oneBlog={oneBlog} />
+      <OneBlog oneBlog={oneBlog} images={images} />
     </div>
   )
 
@@ -240,7 +242,7 @@ const Blog = (props) => {
       <div className='user-panel'>
         <div className='inner-user'>
         {
-            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+            images ? <img src={`${links}/images/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
           }
           <h3>{data}</h3>
         </div>
@@ -267,7 +269,7 @@ const Blog = (props) => {
         <div className='top'>
           <div>
           {
-            images ? <img src={`/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
+            images ? <img src={`${links}/images/user/${images}`} alt='avatar' /> : <img src={panda} alt='avatar' />
           }
             <h3>{data}</h3>
           </div>
@@ -275,10 +277,13 @@ const Blog = (props) => {
 
         <div className='blog-body myblog'>
           {
-            blogMy.map((items) => {
+            blogMy.map((items,index) => {
               return (
-                <div className='inner-blog-body'>
-                 <div className='bg-img' style={{backgroundImage: `url(/blog/${items.imageBlog.fileName})`}}></div>
+                <div className='inner-blog-body' key={index}>
+
+                 {/* <div className='bg-img' style={{backgroundImage: `url(${links}/images/blog/${items.imageBlog.fileName})`}}></div> */}
+
+                 <img className='bg-img' src={`${links}/images/blog/${items.imageBlog.fileName}`} alt="" />
                   <div className='right-texts' key={items._id}>
                     <h1>{items.title}</h1>
                     <p>{items.description}</p>

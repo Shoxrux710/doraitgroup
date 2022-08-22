@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import {useHistory} from 'react-router-dom'
 import NewsList from '../news-list';
 import axios from '../../utils/axiosInterceptors';
+import images from '../../images/clarity_image-gallery-solid.png'
 import './new.css'
 
 const New = (props) => {
@@ -83,7 +84,7 @@ const New = (props) => {
     } else if(avatarFront) {
         avatarImg = URL.createObjectURL(avatarFront);
     } else {
-        avatarImg = "https://image.jimcdn.com/app/cms/image/transf/none/path/s282e5c140bd19b68/image/if276da1f9640480b/version/1580646418/image.png"
+        avatarImg = images
     }
 
 

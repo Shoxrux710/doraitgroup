@@ -4,16 +4,16 @@ const storage = multer.diskStorage({
 
     destination(req, file, cb){
         if (file.fieldname === 'imageNews'){
-            cb(null, `./admin/public/news`)
+            cb(null, `./images/news`)
         }
         if (file.fieldname === 'imagePort'){
-            cb(null, `./admin/public/portfolio`)
+            cb(null, `./images/portfolio`)
         }
         if (file.fieldname === 'imageBlog'){
-            cb(null, `./client/public/blog`)
+            cb(null, `./images/blog`)
         }
         if (file.fieldname === 'imagesUser'){
-            cb(null, `./client/public/user`)
+            cb(null, `./images/user`)
         }
     },
 

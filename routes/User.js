@@ -10,13 +10,14 @@ const blogUserMiddleware = require('../middleware/blogUser');
 const Blog = require('../models/Blog')
 const path = require('path')
 const fs = require('fs')
+const config = require('config')
 const router = Router()
 
 
 const deleteOldImage = (fileName) => {
 
     return new Promise((resolve, reject) => {
-        fs.unlink(path.join(__dirname, `../client/public/user/${fileName}`),(err) => {
+        fs.unlink(path.join(__dirname, `../images/user/${fileName}`),(err) => {
             resolve()
         })
     }) 
@@ -25,7 +26,7 @@ const deleteOldImage = (fileName) => {
 const deleteUserImage = (fileName) => {
     
     return new Promise((resolve, reject) => {
-        fs.unlink(path.join(__dirname, `../client/public/blog/${fileName}`), (err) => {
+        fs.unlink(path.join(__dirname, `../images/blog/${fileName}`), (err) => {
             resolve()
         })
     })
@@ -72,7 +73,7 @@ router.post('/register', registerValidator, async (req, res) => {
              id: user._id
             }
 
-            const token = jwt.sign(payload, "UBGJVNSKVWUENVKSJNV")
+            const token = jwt.sign(payload, config.get('jwtSecretKeyClient'))
 
             res.status(200).json({ 
                 token,
@@ -126,7 +127,7 @@ router.post('/login', authValidator, async (req, res) => {
             id: user._id
         }
 
-        const token = jwt.sign(payload, "UBGJVNSKVWUENVKSJNV")
+        const token = jwt.sign(payload, config.get('jwtSecretKeyClient'))
 
         res.status(200).json({
             token,
@@ -194,7 +195,6 @@ router.delete('/delete/:id', async (req, res) => {
     const { id } = req.params
 
     try {
-        await User.deleteOne({_id: id})
         const blogs = await Blog.find({userId: id})
 
         for (let i = 0; i < blogs.length; i++) {

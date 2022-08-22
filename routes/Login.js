@@ -88,8 +88,8 @@ router.post('/login', authValidator, async (req, res) => {
             id: user._id
         }
 
-        const token = jwt.sign(payload, "KJNBDFIBURPOESLSD", { expiresIn: '1h' });
-        const refreshToken = jwt.sign(payload, "ASDFQWERZXCVERTW");  // 1
+        const token = jwt.sign(payload, config.get('jwtSecretKeyAdmin'), { expiresIn: '1h' });
+        const refreshToken = jwt.sign(payload, config.get('refreshToken'));  // 1
 
         const newRefreshToken = new Token({ refreshToken });
 
@@ -121,7 +121,7 @@ router.post('/token', (req, res) => {
  
     if (!refreshToken) return res.status(401).json({ errorMessage: 'Siz avtorizatsiyadan otmagansiz' })
 
-    jwt.verify(refreshToken, 'ASDFQWERZXCVERTW', (rErr, user) => {
+    jwt.verify(refreshToken, config.get('refreshToken'), (rErr, user) => {
         if (rErr) return res.status(403).json({ errorMessage: 'Sizni dostupingiz yoq' });
 
         Token.findOne({ refreshToken }, (err, rToken) => {
@@ -129,7 +129,7 @@ router.post('/token', (req, res) => {
 
             if (!rToken) return res.status(403).json({ errorMessage: 'Sizni dostupingiz yoq' });
 
-            const accessToken = jwt.sign({ id: user.id }, 'KJNBDFIBURPOESLSD', { expiresIn: '1h' });
+            const accessToken = jwt.sign({ id: user.id }, config.get('jwtSecretKeyAdmin'), { expiresIn: '1h' });
             res.status(200).json({ accessToken });
         });
     });    

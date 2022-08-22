@@ -24,6 +24,8 @@ const Edit = ({ setOpenModal, setVisible }) => {
     const [avatarFront, setAvatarFront] = useState(null);
     const [imageUrl, setImageUrl] = useState(null)
 
+    let links = window.location.pathname ? "http://localhost:4008" : ''
+
     const history = useHistory()
 
     useEffect(() => {
@@ -42,8 +44,6 @@ const Edit = ({ setOpenModal, setVisible }) => {
         })
 
     },[token])
-
-    console.log("fsfsd", imageUrl);
 
     const onSubmit = (e) => {
         
@@ -71,7 +71,7 @@ const Edit = ({ setOpenModal, setVisible }) => {
     let avatarImg
 
     if (imageUrl && !avatarFront){
-        avatarImg = `/user/${img}`
+        avatarImg = `${links}/images/user/${img}`
     }
     else if(avatarFront){
         avatarImg = URL.createObjectURL(avatarFront)
@@ -129,7 +129,7 @@ const Edit = ({ setOpenModal, setVisible }) => {
                 <input
                     id='instagram'
                     name="instagram"
-                    value={instagram}
+                    value={instagram ? instagram : ''}
                     onChange={(e) => setInstagram(e.target.value)}
                 />
             </div>
@@ -139,7 +139,7 @@ const Edit = ({ setOpenModal, setVisible }) => {
                 <input
                     id='facebook'
                     name="facebook"
-                    value={facebook}
+                    value={facebook ? facebook : ''}
                     onChange={(e) => setFacebook(e.target.value)}
                 />
             </div>
@@ -149,7 +149,7 @@ const Edit = ({ setOpenModal, setVisible }) => {
                 <input
                     id='telegram'
                     name="telegram"
-                    value={telegram}
+                    value={telegram ? telegram : ''}
                     onChange={(e) => setTelegram(e.target.value)}
                 />
             </div>

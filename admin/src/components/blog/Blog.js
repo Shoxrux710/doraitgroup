@@ -7,6 +7,8 @@ const Blog = (props) => {
 
     const { account, blogsId, id, blogCount } = props;
 
+    
+
     const [search, setSearch] = useState("")
 
     return (

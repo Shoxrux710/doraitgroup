@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const middleware = require('./middleware/file')
-
+const path = require('path')
+const config = require('config')
 const app = express()
 
 // routes
@@ -29,7 +30,7 @@ app.use(middleware.fields([
 const db = require('./utils/db')
 db()
 
-
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/api/news/', newsRouter)
 app.use('/api/user/', adminRouter)
 app.use('/api/port/', portRouter)
@@ -37,8 +38,21 @@ app.use('/api/client/', userRouter)
 app.use('/api/blog/', blogRouter)
 
 
-const PORT = 4008
+
+const PORT = config.get('port') || 4008
+
+if(process.env.NODE_ENV === 'production'){
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+    app.use('/', express.static(path.join(__dirname, 'admin', 'build')))
+  
+    app.get('/admin*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'admin', 'build', 'index.html'))
+    })
+  
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+  
+}  
 
 app.listen(PORT, () => console.log(`server ${PORT} da ishladi`))
-
-

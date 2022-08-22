@@ -1,6 +1,6 @@
 {
-    "port": 4008,
-    "mongoUrl": "mongodb://localhost:27017/doragroup",
+    "port": 3000,
+    "mongoUrl": "mongodb+srv://center:710sh6465@cluster0.kzulh.mongodb.net/doragroup",
     "jwtSecretKeyAdmin": "SDFSFEFREGHRTHRTHRTHDFHTHRTHS",
     "jwtSecretKeyClient": "UBGJVNSKVWUENVKSJNVFGBFGBFGB",
     "refreshToken": "ASDFQWERZXCVERTWSDFSDGDFDFGDF",

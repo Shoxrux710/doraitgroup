@@ -11,7 +11,7 @@ const router = Router()
 const deleteOldImage = (fileName) => {
 
     return new Promise((resolve, reject) => {
-        fs.unlink(path.join(__dirname, `../client/public/blog/${fileName}`), (err) => {
+        fs.unlink(path.join(__dirname, `../images/blog/${fileName}`), (err) => {
             resolve()
         })
     })
@@ -77,7 +77,7 @@ router.delete('/delete/:id', (req, res) => {
         if (err) return res.status(400).json({errorMessage: "Xato"})
 
         const {imageBlog} = blogsOne
-        oldFileName = imageBlog
+        oldFileName = imageBlog.fileName
 
         Blog.deleteOne({_id: id}, async(err) => {
             if (err) return res.status(400).json({errorMessage: "Xato"})

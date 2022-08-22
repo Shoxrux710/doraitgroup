@@ -15,6 +15,8 @@ const NewsById = (props) => {
     const [loader, setLoader] = useState(true)
     const {lang} = useSelector(state => state.userLogin)
 
+    let links = window.location.pathname ? "http://localhost:4008" : ''
+
     const viewNews = (id) => {
         axios.put(`/api/news/view/${id}`)
               .then(response => {
@@ -50,13 +52,13 @@ const NewsById = (props) => {
 
     const title = newsById.title ? newsById.title[lang] : ''
     const description = newsById.description ? newsById.description[lang] : ''
-    const images = newsById.imageNews ? newsById.imageNews.fileUrl : ''
+    const images = newsById.imageNews ? newsById.imageNews.fileName : ''
 
     return (
         <div className='news-by-id'>
             {loadingA}
             <div className='left'>
-                <div className='bg' style={{ backgroundImage: `url('http://localhost:3000/${images}')` }}></div>
+                <div className='bg' style={{ backgroundImage: `url(${links}/images/news/${images})` }}></div>
                 <p style={{display: 'flex'}}> <img src={eye} alt='vector' style={{marginRight: '5px'}} /> {view}</p>
                 <h5>{title}</h5>
                 <p>{description}</p>
@@ -83,7 +85,7 @@ const NewsById = (props) => {
                             <div className='wrapper' key={items._id}>
                                 <Link to={`/then/news/${items._id}`} style={{textDecoration: 'none'}}>
                                 <div className='qator'>
-                                    <div className='left-img' style={{ backgroundImage: `url('http://localhost:3001/${items.imageNews.fileUrl}')` }}></div>
+                                    <div className='left-img' style={{ backgroundImage: `url(${links}/images/news/${items.imageNews.fileName})` }}></div>
                                     <div className='right-data'>
                                         <div className='date'>
                                             <div className='left-side'>

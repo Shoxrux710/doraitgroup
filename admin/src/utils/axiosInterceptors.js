@@ -22,8 +22,6 @@ axios.interceptors.response.use((response) => {
     const userData = JSON.parse(window.localStorage.getItem('auth'));
     const refreshToken = userData ? userData.rToken : null;
 
-    console.log(origionalConfig.status);
-
     try {
         if (origionalConfig.status === 403 && !origionalConfig.config._retry) {
 

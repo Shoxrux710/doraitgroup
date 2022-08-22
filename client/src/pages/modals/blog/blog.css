@@ -337,7 +337,7 @@
 
 .blogs-modal .one-blog .blog-body .bg-img {
   width: 40%;
-  height: 210px;
+  height: auto;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

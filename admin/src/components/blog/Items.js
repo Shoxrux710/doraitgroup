@@ -5,6 +5,7 @@ import React from 'react'
 const Items = (props) => {
 
     const { blogsId, id, blogCount } = props
+    let links = window.location.pathname ? "http://localhost:4008" : ''
 
     const blogs = id ? (
                     <>
@@ -17,7 +18,7 @@ const Items = (props) => {
                                 blogsId.map((items, index) => {
                                     return (
                                         <div className="items" key={index}>
-                                            <img src={`http://localhost:3001/blog/${items.imageBlog.fileName}`} alt="" />
+                                            <img src={`${links}/images/blog/${items.imageBlog.fileName}`} alt="" />
                                             <div className="lorem">
                                                 <div className="date">{items.date.substring(0, 10)}</div>
                                                 <div className="title">{items.title}</div>

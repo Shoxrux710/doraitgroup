@@ -22,6 +22,9 @@ const Home = (props) => {
      portloading
       } = props
 
+      let links = window.location.pathname ? "http://localhost:4008" : ''
+
+
     return (
         <div className="homes">
             <div className="items">
@@ -56,7 +59,7 @@ const Home = (props) => {
                                 return (
                                     <div className="news" key={items._id}>
                                         <div className="image">
-                                            <img src={`/news/${items.imageNews.fileName}`} alt="" />
+                                            <img src={`${links}/images/news/${items.imageNews.fileName}`} alt="" />
                                         </div>
                                         <div className="lorem">
                                             <div className="date">
@@ -96,7 +99,7 @@ const Home = (props) => {
                                 return (
                                     <a href={`http://${items.link}`} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}>
                                         <div className="images" key={items._id}>
-                                            <img src={`/portfolio/${items.imagePort.fileName}`} alt="" />
+                                            <img src={`${links}/images/portfolio/${items.imagePort.fileName}`} alt="" />
                                         </div>
                                         <h3>{items.title.uz}</h3>
                                         <p>{items.description.uz}</p>
@@ -138,7 +141,7 @@ const Home = (props) => {
 
                            return (
                             <div className="blogs" key={items._id}>
-                            <img src={`http://localhost:3001/${items.imageBlog.fileUrl}`} alt="" />
+                            <img src={`${links}/images/blog/${items.imageBlog.fileName}`} alt="" />
                             <div className="lorem">
                                 <div className="date">{items.date.substring(0, 10)}</div>
                                 <div className="title">{items.title}</div>

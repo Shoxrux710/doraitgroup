@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux'
 
 const News = () => {
 
+    let links = window.location.pathname ? "http://localhost:4008" : ''
+
     // const { t } = useTranslation()
     const [data, setData] = useState([])
     const [loader, setLoader] = useState(true)
@@ -58,7 +60,7 @@ const News = () => {
 
                         return (
                             <Link to={`/then/news/${item._id}`} className='square' key={index}>
-                                <div className='bg-img' style={{backgroundImage: `url('http://localhost:3001/news/${item.imageNews.fileName}')`}}></div>
+                                <div className='bg-img' style={{backgroundImage: `url(${links}/images/news/${item.imageNews.fileName})`}}></div>
                                 <h2>{item.title[lang]}</h2>
                                 <p>{description}{continueText}</p>
                             </Link>

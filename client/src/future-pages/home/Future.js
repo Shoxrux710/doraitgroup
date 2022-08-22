@@ -12,7 +12,7 @@ const Future = () => {
     let interval = useRef();
 
     const startTimer = () => {
-        const countdownDate = new Date('January 1, 2022 00:00:00').getTime()
+        const countdownDate = new Date('May 1, 2022 00:00:00').getTime()
 
         interval = setInterval(() => {
         const now = new Date().getTime()

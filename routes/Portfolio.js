@@ -13,7 +13,7 @@ const router = Router()
 const deleteOldImage = (fileName) => {
     
     return new Promise((resolve, reject) => {
-        fs.unlink(path.join(__dirname, `../admin/public/portfolio/${fileName}`), (err) => {
+        fs.unlink(path.join(__dirname, `../images/portfolio/${fileName}`), (err) => {
             resolve()
         })
     })

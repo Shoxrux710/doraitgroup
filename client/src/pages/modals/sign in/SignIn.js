@@ -174,13 +174,13 @@ const SignIn = (props) => {
                 <div className='input-wrapper'>
                     <p onClick={() => setData('ruyhat')}>{t('signin.registr')}</p>
                     <div className='socials'>
-                        <a href='/' className='circle'>
+                        <a href='https://www.instagram.com/dora_itgroup' className='circle'>
                             <img src={instagram} alt='instagram' />
                         </a>
-                        <a href='/' className='circle'>
+                        <a href='https://t.me/@dora_it' className='circle'>
                             <img src={telegram} alt='telegram' />
                         </a>
-                        <a href='/' className='circle'>
+                        <a href='https://www.facebook.com/Shavkat-Narzullayev' className='circle'>
                             <img src={facebook} alt='facebook' />
                         </a>
                     </div>

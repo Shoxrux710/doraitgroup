@@ -10,6 +10,8 @@ const Port = (props) => {
 
     const [show, setShow] = useState(false);
 
+    let links = window.location.pathname ? "http://localhost:4008" : ''
+
     const oneDelete = (id) => {
         deleteOne(id)
         setShow(false)
@@ -34,7 +36,7 @@ const Port = (props) => {
                     ><RiDeleteBin6Line /> O'chirish</p>
                 </div>
                 <a href={`http://${link}`} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}>
-                <img src={`/portfolio/${imagePort.fileName}`} alt="" />
+                <img src={`${links}/images/portfolio/${imagePort.fileName}`} alt="" />
                 </a>
             </div>
             <h3>{title.uz}</h3>

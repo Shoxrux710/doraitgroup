@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 const Login = require('../models/Login')
 const bcrypt = require('bcrypt')
+const config = require('config')
 
 module.exports = async() => {
 
     try {
-        await mongoose.connect("mongodb://localhost:27017/doragroup",
+        await mongoose.connect(config.get('mongoUrl'),
             { useNewUrlParser: true, useUnifiedTopology: true })
 
         const admin = await Login.findOne()

@@ -13,6 +13,7 @@ const NewsListItem = (props) => {
     const { imageNews, date, view, description, _id, onDelete } = props;
 
 
+    let links = window.location.pathname ? "http://localhost:4008" : ''
 
 
     const deleteOne = (id) => {
@@ -35,7 +36,7 @@ const NewsListItem = (props) => {
 
     return (
         <div className="news-list-item">
-            <img src={`/news/${imageNews.fileName}`} alt="" />
+            <img src={`${links}/images/news/${imageNews.fileName}`} alt="" />
            
             <div className="lorem">
                 <div className="date">
