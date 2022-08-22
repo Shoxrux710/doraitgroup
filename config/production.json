@@ -1,6 +1,6 @@
 {
     "port": 3000,
-    "mongoUrl": "mongodb+srv://center:710sh6465@cluster0.kzulh.mongodb.net/doragroup",
+    "mongoUrl": "mongodb://localhost:27017,localhost:27018,localhost:27019/onititgroup",
     "jwtSecretKeyAdmin": "SDFSFEFREGHRTHRTHRTHDFHTHRTHS",
     "jwtSecretKeyClient": "UBGJVNSKVWUENVKSJNVFGBFGBFGB",
     "refreshToken": "ASDFQWERZXCVERTWSDFSDGDFDFGDF",

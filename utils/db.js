@@ -6,8 +6,7 @@ const config = require('config')
 module.exports = async() => {
 
     try {
-        await mongoose.connect(config.get('mongoUrl'),
-            { useNewUrlParser: true, useUnifiedTopology: true })
+        await mongoose.connect(config.get('mongoUrl'), {replicaSet: "myReplicaSet"})
 
         const admin = await Login.findOne()
 
