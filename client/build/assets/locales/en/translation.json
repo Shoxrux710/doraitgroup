@@ -1,0 +1,86 @@
+{
+    "home": {
+        "sign": "Sign In",
+        "blog": "Blog",
+        "portfolio": "Portfolio",
+        "news": "News",
+        "contact": "Contact",
+        "services": "Services",
+        "about_us": "About us",
+        "recycle_bin": "Recycle bin",
+        "calculator": "Calculator",
+        "turn_on": "Turn on",
+        "lan": "En",
+        "edit": "Edit"
+    },
+    "kirish": {
+        "then": "Back to the past!",
+        "future": "Welcome to the future!"
+    },
+    "about": {
+        "about_us": "About us",
+        "text": "Our team started its activities in April 2021 as a team of 10 people under the name Dora IT Team",
+        "text2": "Large selection of templates created by designers. Edit, edit, and add anything you want. The professional look starts with the domain. Large selection of templates created by designers. Edit, edit, and add anything you want. The professional look starts with the domain. Edit, edit, and add anything you want. The professional look starts with the domain.",
+        "our_team": "Our team",
+        "age": "Age",
+        "experience": "Experience",
+        "number_projects": "Number of projects",
+        "rank": "Rank",
+        "number_works": "Number of works"
+    },
+    "blog": {
+        "write": "Blogging",
+        "blogs": "Blogs",
+        "my_blog": "My blog",
+        "delete": "Delete the publication",
+        "do": "Publish",
+        "back": "Back",
+        "joylash": "Posting",
+        "nashrlar": "Publications",
+        "follower": "Subscribers",
+        "follow_back": "Subscribers"
+    },
+    "contact": {
+        "name": "Name",
+        "phone": "Phone",
+        "comment": "Comment",
+        "send": "Send",
+        "address": "Address",
+        "address_": "Tashkent city, Yunusabad district, Yangi Shahar street",
+        "email": "Email"
+    },
+    "services": {
+        "design": "Web Design",
+        "design_text": "In the modern digital world, creating a website is the first interaction of consumers with your business, so almost 95% of the first user impression is related to website designs.",
+        "site": "Web Site",
+        "site_text": "A website is a unique address. Website or web-site in English: web - means spider web, network and site - place, segment, part of a network. A site is a collection of linked web pages that use the same domain name. Websites can be created by an individual, group, business or organization for a variety of purposes. All public websites are part of the World Wide Web.",
+        "marketing": "Marketing",
+        "marketing_text": "The goal of marketing is to attract new customers for a product, product, or service, offering them high consumer quality, while satisfying their ever-changing needs while retaining existing customers.",
+        "system": "System"
+    },
+    "signin": {
+        "registr": "Sign in",
+        "fullname": "Fullname",
+        "email": "Email",
+        "reparol": "Repeat the password",
+        "enter": "Sign in",
+        "remem": "Remember",
+        "forget": "Forgot password",
+        "tiklash": "Reset password",
+        "phone": "Phone number",
+        "tiklash_text": "Enter the address associated with your account, we will send you instructions on how to change the password. They fall into your telegram address so check."
+    },
+    "turnon": {
+        "text": "We are pleased to welcome you to Dora IT group",
+        "back": "Return to site"
+    },
+    "edit": {
+        "edit_profil": "Log out",
+        "change": "Change profile picture",
+        "username": "Username",
+        "instagram": "You can add your Instagram link",
+        "facebook": "You can add your Facebook link",
+        "telegram": "You can add your Telegram link",
+        "edit": "Edit"
+    }
+}
